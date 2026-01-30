@@ -31,9 +31,9 @@ function chimneys.update_chimney(pos)
 		modname = thisnode.name:sub(1, colonpos-1)
 	end
 	underscorepos = itemname:find("_")
-	if underscorepos == nil then -- New wall
+	if underscorepos == nil then -- New chimney
 		basename = thisnode.name .. "_"
-	else -- Already placed wall
+	else -- Already placed chimney
 		basename = modname .. ":" .. itemname:sub(1, underscorepos)
 	end
 
@@ -66,11 +66,11 @@ mcl_levelgen.register_notification_handler ("chimneys:update_chimneys", function
 		v.x = x
 		v.y = y
 		v.z = z
-		update_wall (v)
+		update_chimney (v)
 	end
 end)
 
-local function update_wall_global(pos)
+local function update_chimney_global(pos)
 	for i = 1,4 do
 		local dir = directions[i]
 		chimneys.update_chimney({x = pos.x + dir.x, y = pos.y + dir.y, z = pos.z + dir.z})
@@ -132,7 +132,7 @@ local function rshift(x, by)
 	return math.floor(x / 2 ^ by) % 2
 end
 
---[[ Adds a new wall type.
+--[[ Adds a new chimney type.
 * nodename: Itemstring of base node to add. Must not contain an underscore
 * description: Item description (tooltip), visible to user
 * source: Source block to craft this thing, for graphics, tiles and crafting (optional)
@@ -246,10 +246,10 @@ end
 function chimneys.register_chimney_def(name,def)
 	local source = def.source
 	def.source = nil
-	chimneys.register_wall(name, nil, source, nil, nil, nil, nil, def)
+	chimneys.register_chimney(name, nil, source, nil, nil, nil, nil, def)
 end
 
 dofile(modpath.."/register.lua")
 
-core.register_on_placenode(update_wall_global)
-core.register_on_dignode(update_wall_global)
+core.register_on_placenode(update_chimney_global)
+core.register_on_dignode(update_chimney_global)
