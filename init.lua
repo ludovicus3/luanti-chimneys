@@ -18,7 +18,7 @@ end
 function chimneys.update_chimney(pos)
 	local thisnode = core.get_node(pos)
 
-	if core.get_item_group(thisnode.name, "chimney") == 0 then
+	if not connectable(thisnode.name) then
 		return
 	end
 
@@ -30,7 +30,7 @@ function chimneys.update_chimney(pos)
 		itemname = thisnode.name:sub(colonpos+1)
 		modname = thisnode.name:sub(1, colonpos-1)
 	end
-	underscorepos = itemname:find("_")
+	underscorepos = itemname:find("_%d+$")
 	if underscorepos == nil then -- New chimney
 		basename = thisnode.name .. "_"
 	else -- Already placed chimney
@@ -47,10 +47,6 @@ function chimneys.update_chimney(pos)
 			sum = sum + 2 ^ (i - 1)
 		end
 	end
-
-	--[[if sum == 0 then
-		sum = 15
-	end]]
 
 	core.set_node(pos, {name = basename..sum})
 end
@@ -165,10 +161,7 @@ function chimneys.register_chimney(nodename, description, source, tiles, invento
 	end
 
 	for i = 0, 15 do
-		local shape = {}
-        for j = 1, 4 do
-            table.insert(shape, corners[j])
-        end
+		local shape = table.copy(corners)
 
         -- We want the inverse of the bits 0 is full chimney, 15 is the center of a plus
         for k = 1, 4 do
