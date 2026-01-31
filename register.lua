@@ -3,13 +3,11 @@ local S = core.get_translator(core.get_current_modname())
 chimneys.register_chimney_def("chimneys:chimney_cobble",{
 	source = "mcl_core:cobble",
 	description = S("Cobblestone Chimney"),
-	--tiles = {"chimneys_cobble_chimney_top.png", "default_cobble.png", "chimneys_cobble_chimney_side.png"},
 	_mcl_stonecutter_recipes = { "mcl_core:cobble" },
 })
 chimneys.register_chimney_def("chimneys:chimney_mossycobble", {
 	source = "mcl_core:mossycobble",
 	description = S("Mossy Cobblestone Chimney"),
-	--tiles = {"chimneys_cobble_mossy_chimney_top.png", "default_mossycobble.png", "chimneys_cobble_mossy_chimney_side.png"},
 	_mcl_stonecutter_recipes = { "mcl_core:mossycobble" },
 })
 chimneys.register_chimney_def("chimneys:chimney_andesite", {
@@ -17,15 +15,30 @@ chimneys.register_chimney_def("chimneys:chimney_andesite", {
 	source = "mcl_core:andesite",
 	_mcl_stonecutter_recipes = {"mcl_core:andesite"},
 })
+chimneys.register_chimney_def("chimneys:chimney_andesite_smooth", {
+    description = S("Polished Andesite Chimney"),
+    source = "mcl_core:andesite_smooth",
+    _mcl_stonecutter_recipes = {"mcl_core:andesite_smooth", "mcl_core:andesite"},
+})
 chimneys.register_chimney_def("chimneys:chimney_granite", {
 	description = S("Granite Chimney"),
 	source = "mcl_core:granite",
 	_mcl_stonecutter_recipes = {"mcl_core:granite",},
 })
+chimneys.register_chimney_def("chimneys:chimney_granite_smooth", {
+    description = S("Polished Granite Chimney"),
+    source = "mcl_core:granite_smooth",
+    _mcl_stonecutter_recipes = {"mcl_core:granite_smooth", "mcl_core:granite"},
+})
 chimneys.register_chimney_def("chimneys:chimney_diorite", {
 	description = S("Diorite Chimney"),
 	source = "mcl_core:diorite",
 	_mcl_stonecutter_recipes = {"mcl_core:diorite",},
+})
+chimneys.register_chimney_def("chimneys:chimney_diorite_smooth", {
+    description = S("Polished Diorite Chimney"),
+    source = "mcl_core:diorite_smooth",
+    _mcl_stonecutter_recipes = {"mcl_core:diorite_smooth", "mcl_core:diorite"},
 })
 chimneys.register_chimney_def("chimneys:chimney_brick", {
 	description = S("Brick Chimney"),
@@ -42,11 +55,17 @@ chimneys.register_chimney_def("chimneys:chimney_redsandstone", {
 	source = "mcl_core:redsandstone",
 	_mcl_stonecutter_recipes = {"mcl_core:redsandstone",},
 })
+chimneys.register_chimney_def("chimneys:chimney_stone", {
+    description = S("Stone Chimney"),
+    source = "mcl_core:stone",
+    _mcl_stonecutter_recipes = {"mcl_core:stone",},
+})
 chimneys.register_chimney_def("chimneys:chimney_stonebrick", {
 	description = S("Stone Brick Chimney"),
 	source = "mcl_core:stonebrick",
 	_mcl_stonecutter_recipes = {"mcl_core:stonebrick", "mcl_core:stone"},
 })
+
 chimneys.register_chimney_def("chimneys:chimney_stonebrickmossy", {
 	description = S("Mossy Stone Brick Chimney"),
 	source = "mcl_core:stonebrickmossy",
@@ -56,6 +75,11 @@ chimneys.register_chimney_def("chimneys:chimney_prismarine", {
 	description = S("Prismarine Chimney"),
 	source = "mcl_ocean:prismarine",
 	_mcl_stonecutter_recipes = {"mcl_ocean:prismarine",},
+})
+chimneys.register_chimney_def("chimneys:chimney_endstone", {
+    description = S("End Stone Chimney"),
+    source = "mcl_end:end_stone",
+    _mcl_stonecutter_recipes = {"mcl_end:end_stone"},
 })
 chimneys.register_chimney_def("chimneys:chimney_endbricks", {
 	description = S("End Stone Brick Chimney"),
@@ -77,4 +101,23 @@ chimneys.register_chimney_def("chimneys:chimney_mudbrick", {
 	source = "mcl_mud:mud_bricks",
 	_mcl_stonecutter_recipes = {"mcl_mud:mud_bricks",},
 })
-
+chimneys.register_chimney_def("chimneys:chimney_deepslate", {
+    desciption = S("Deepslate Chimney"),
+    source = "mcl_deepslate:deepslate",
+    _mcl_stonecutter_recipes = {"mcl_deepslate:deepslate"},
+})
+chimneys.register_chimney_def("chimneys:chimney_deepslate_cobbled", {
+    desciption = S("Deepslate Cobblestone Chimney"),
+    source = "mcl_deepslate:deepslate_cobbled",
+    _mcl_stonecutter_recipes = {"mcl_deepslate:deepslate_cobbled","mcl_deepslate:deepslate"},
+})
+chimneys.register_chimney_def("chimneys:chimney_deepslate_polished", {
+    desciption = S("Polished Deepslate Chimney"),
+    source = "mcl_deepslate:deepslate_polished",
+    _mcl_stonecutter_recipes = {"mcl_deepslate:deepslate_polished","mcl_deepslate:deepslate"},
+})
+chimneys.register_chimney_def("chimneys:chimney_deepslate_chiseled", {
+    desciption = S("Chiseled Deepslate Chimney"),
+    source = "mcl_deepslate:deepslate_chiseled",
+    _mcl_stonecutter_recipes = {"mcl_deepslate:deepslate_chiseled","mcl_deepslate:deepslate_polished","mcl_deepslate:deepslate"},
+})
